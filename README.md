@@ -1,10 +1,4 @@
-# CRM
-Mini-CRM
-
-
-
-
-Admin panel to manage   companies and their employees. Mini-CRM.
+# Admin panel to manage   companies and their employees. Mini-CRM.
 
 1.	Basic Laravel Auth: ability to log in as administrator
 2.	Use database seeds to create first user with 
