@@ -9,7 +9,12 @@ Route::group([  'prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::resource('companies', 'Admin\CompaniesController');
     Route::resource('employees', 'Admin\EmployeesController');
-  
+    Route::get('TestMail', function ()
+    {
+        
+        return new App\Mail\SendMail(new App\Models\Company());
+        
+    });  
     
 });
  

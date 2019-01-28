@@ -31,9 +31,12 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->company->name." تم اضافة شركة  ")
-                    ->view('admin.companies.email')->with([
-                        'company' => $this->company
-                    ]);
+        // return $this->subject($this->company->name." تم اضافة شركة  ")
+        //             ->view('admin.companies.email')->with([
+        //                 'company' => $this->company
+        //             ]);
+        return $this->markdown('admin.companies.email')->with([
+            'company' => $this->company
+        ]);
     }
 }

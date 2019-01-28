@@ -16,6 +16,7 @@ return [
 	
 	'company' => [
 		'title' => 'الشركات',
+		'Addcompany' =>'تم اضافة شركة ',
 		'fields' => [
 			'name' => 'الاسم',
 			'email' => 'البريد الالكتروني',

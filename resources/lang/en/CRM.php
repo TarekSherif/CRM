@@ -8,6 +8,7 @@ return [
 	
 	'users' => [
 		'title' => 'Users',
+		'Addcompany' =>'A company has been added',
 		'fields' => [
 			'name' => 'Name',
 			'email' => 'Email',
