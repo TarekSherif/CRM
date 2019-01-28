@@ -10,5 +10,13 @@ return array(
   "username" => "ba9a5d80b93eaa",
   "password" => "7d6105d1ec531a",
   "sendmail" => "/usr/sbin/sendmail -bs",
-  "pretend" => false
+  "pretend" => false,
+
+  'markdown' => [
+    'theme' => 'default',
+    'paths' => [
+        resource_path('views/vendor/mail'),
+    ],
+],
+
 );
