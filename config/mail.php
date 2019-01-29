@@ -9,6 +9,7 @@ return array(
     ),
     "username" => "15d4f91c5c9581",
     "password" => "2f6339897274c0",
+    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
     "sendmail" => "/usr/sbin/sendmail -bs",
     "pretend" => false,
     'stream' => [
