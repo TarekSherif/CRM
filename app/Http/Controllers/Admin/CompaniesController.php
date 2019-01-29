@@ -56,8 +56,13 @@ class CompaniesController extends Controller
         $company =new Company;
 
         $this->SaveCompany( $request, $company);
-
-        Mail::to("eng.tarek.sherif@gmail.com")->send(new SendMail($company));
+    
+        try {
+            Mail::to("eng.tarek.sherif@gmail.com")->send(new SendMail($company));
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+            
 
        
         return redirect()
