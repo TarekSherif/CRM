@@ -57,7 +57,11 @@ return [
 	'qa_delete' => 'Delete',
 	'qa_delete_selected' => 'Delete selected',
 	'qa_please_select' => 'Please select',
-	
+	'Success'=>'Success',
+	'Added' =>"Has been successfully added",
+	'updated' =>"Has been successfully updated",
+	'Deleted' =>"Has been successfully Deleted",
+
 	'Copyright' => 'Copyright',
 	'ARR' => 'All rights reserved',
 	'Version' => 'Version',

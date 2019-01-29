@@ -54,6 +54,11 @@ return [
 	'qa_delete' => 'حذف',
 	'qa_delete_selected' => 'حذف المحدد',
 	'qa_please_select' => 'يرجى الإختيار',
+
+	'Success'=>'نجاح',
+	'Added' =>"تم  الاضافه بنجاح",
+	'updated' =>"تم  التعدبل بنجاح",
+	'Deleted' =>"تم  المسح بنجاح",
 	
 	'Copyright' => 'حقوق الطبع والنشر',
 	'ARR' => 'كل الحقوق محفوظة',

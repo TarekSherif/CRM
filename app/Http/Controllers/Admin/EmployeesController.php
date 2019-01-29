@@ -46,7 +46,10 @@ class EmployeesController extends Controller
     public function store(EmployeesRequest $request)
     {
         $employee = Employee::create($request->all());
-        return redirect()->route('admin.employees.index');
+       
+        return redirect()
+        ->action('Admin\EmployeesController@index')
+        ->with('success', trans('CRM.Added'));
     }
 
 
@@ -81,7 +84,9 @@ class EmployeesController extends Controller
 
 
 
-        return redirect()->route('admin.employees.index');
+        return redirect()
+        ->action('Admin\EmployeesController@index')
+        ->with('success', trans('CRM.updated'));
     }
 
 
@@ -112,7 +117,9 @@ class EmployeesController extends Controller
         $employee = Employee::findOrFail($id);
         $employee->delete();
 
-        return redirect()->route('admin.employees.index');
+        return redirect()
+        ->action('Admin\EmployeesController@index')
+        ->with('error', trans('CRM.Deleted'));
     }
 
 

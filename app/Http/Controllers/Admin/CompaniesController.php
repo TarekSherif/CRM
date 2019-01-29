@@ -59,7 +59,10 @@ class CompaniesController extends Controller
 
         Mail::to("eng.tarek.sherif@gmail.com")->send(new SendMail($company));
 
-        return redirect()->route('admin.companies.index');
+       
+        return redirect()
+        ->action('Admin\CompaniesController@index')
+        ->with('success', trans('CRM.Added'));
     }
 
     private function SaveCompany( $request, $company)
@@ -103,7 +106,10 @@ class CompaniesController extends Controller
         $company = Company::findOrFail($id);
         $this->SaveCompany( $request, $company);
 
-        return redirect()->route('admin.companies.index');
+        // return redirect()->route('admin.companies.index');
+        return redirect()
+        ->action('Admin\CompaniesController@index')
+        ->with('success',  trans('CRM.updated'));
     }
 
 
@@ -139,7 +145,9 @@ class CompaniesController extends Controller
         Storage::delete("public/$company->logo");
         $company->delete();
        
-        return redirect()->route('admin.companies.index');
+        return redirect()
+        ->action('Admin\CompaniesController@index')
+        ->with('error', trans('CRM.Deleted'));
     }
 
 
