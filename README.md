@@ -31,7 +31,7 @@ First name (required),last name (required),Company (foreign key to Companies),em
 <h1>How to run mini-crm Project</h1>
 
 1. Extract the archive and put it in the folder you want
-2. Prepare your .env file there with database connection and other settings
+2. Prepare your .env file there with database connection  
 3. Run "composer install" command
 4. Run "php artisan migrate --seed
 5. Run "php artisan key:generate" command.
