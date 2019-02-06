@@ -8,6 +8,7 @@ return [
 	
 	'users' => [
 		'title' => 'Users',
+		'icon'=>' fa-vcard',
 		'Addcompany' =>'A company has been added',
 		'fields' => [
 			'name' => 'Name',
@@ -19,6 +20,7 @@ return [
 	
 	'company' => [
 		'title' => 'Company',
+		'icon'=>' fa-building-o',
 		'fields' => [
 			'name' => 'Name',
 			'email' => 'Email',
@@ -29,6 +31,7 @@ return [
 	
 	'employee' => [
 		'title' => 'Employee',
+		'icon'=>' fa-vcard',
 		'fields' => [
 			'f-name' => 'First name',
 			'l-name' => 'Last name',

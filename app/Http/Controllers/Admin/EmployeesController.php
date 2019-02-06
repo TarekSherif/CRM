@@ -157,4 +157,60 @@ class EmployeesController extends Controller
           return response()->json($Result);
           }
 
+
+          
+    public function ListOfEmployees($id=null)
+    {
+        $jTableResult =  array();
+        $where=($id)?"  where   `companies`.`id`=$id":"";
+        try
+        {
+            $SQL ="SELECT `employees`.`id`, `employees`.`f_name`, `employees`.`l_name`, `employees`.`email`, `employees`.`phone`,companies.name as Cname
+            FROM `employees` 
+            LEFT JOIN `companies`  on `employees`.`cid_id`=`companies`.`id` $where
+            ORDER BY  ".$_GET["jtSorting"] ." 
+            LIMIT ".$_GET["jtStartIndex"] ." , ".$_GET["jtPageSize"]  ;
+
+            $Data= DB::select($SQL);
+
+            $SQL ="SELECT Count(*) as TotalRecordCount  from Employees";
+            $TotalRecordCount= DB::select($SQL)[0]->TotalRecordCount;
+            
+            $jTableResult['Result'] = "OK";
+            $jTableResult['Records'] =$Data;
+            $jTableResult['TotalRecordCount'] =$TotalRecordCount;
+      
+           
+        }
+        catch(Exception $ex)
+        {
+            //Return error Message
+            $jTableResult['Result'] = "ERROR";
+            $jTableResult['Message'] = $ex->getMessage();
+           
+        }
+        return response()->json($jTableResult);
+    }
+    
+    public function DeleteEmployee()
+    {
+      $jTableResult =  array();
+          try
+          {
+                  //Delete from database
+                  $SQL="DELETE FROM Employees WHERE id ='" . $_POST["id"]."';" ;
+                  DB::delete($SQL);
+                  //Return result to jTable
+                  $jTableResult['Result'] = "OK";
+               
+          }
+          catch(Exception $ex)
+          {
+              //Return error Message
+              $jTableResult['Result'] = "ERROR";
+              $jTableResult['Message'] = $ex->getMessage();
+         }
+        return response()->json($jTableResult);
+    }
+
 }

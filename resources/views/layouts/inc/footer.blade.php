@@ -43,56 +43,16 @@
 
 @if($jtable)
 
- 
-<script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
-<script src="//cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
-<script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.flash.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-<script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.print.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.colVis.min.js"></script>
-<script src="https://cdn.datatables.net/select/1.2.0/js/dataTables.select.min.js"></script>
- 
+<script src="{{asset('js/datepicker-ar.js')}}"></script>
 
-<script src="{{ url('Template/AdminLTE/js') }}/select2.full.min.js"></script>
-<script src="{{ url('Template/AdminLTE/js') }}/main.js"></script>
+<script type="text/javascript" src="{{asset('js/jtable/jquery.jtable.js')}}"></script>
 
-<script src="{{ url('Template/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
-<script src="{{ url('Template/AdminLTE/plugins/fastclick/fastclick.js') }}"></script>
-<script src="{{ url('Template/AdminLTE/js/app.min.js') }}"></script>
+@if(session("lang")=="ar")
+    <script type="text/javascript" src="{{asset('js/jtable/localization/jquery.jtable.AR.js')}}"></script>
+@endif
  
 
  
-<script>
-    window._token = '{{ csrf_token() }}';
-</script>
-<script>
-    $.extend(true, $.fn.dataTable.defaults, {
-        "language": {
-            "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/English.json"
-        }
-    });
-
-    
-</script>
-<script>
-            $(function () {
-            $(window).load(function(){
-                    $("select[name='DataTables_Table_0_length']").val('10');
-            }); 
-           
-        });
-
-        //   window.deleteButtonTrans = '{{ trans("CRM.qa_delete_selected") }}';
-        //   window.copyButtonTrans = '{{ trans("CRM.qa_copy") }}';
-        //   window.csvButtonTrans = '{{ trans("CRM.qa_csv") }}';
-        //   window.excelButtonTrans = '{{ trans("CRM.qa_excel") }}';
-        //   window.pdfButtonTrans = '{{ trans("CRM.qa_pdf") }}';
-        //   window.printButtonTrans = '{{ trans("CRM.qa_print") }}';
-        //   window.colvisButtonTrans = '{{ trans("CRM.qa_colvis") }}';
-      </script>
 
 @endif
 

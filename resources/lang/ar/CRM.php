@@ -16,6 +16,7 @@ return [
 	
 	'company' => [
 		'title' => 'الشركات',
+		'icon'=>' fa-building-o',
 		'Addcompany' =>'تم اضافة شركة ',
 		'fields' => [
 			'name' => 'الاسم',
@@ -27,6 +28,7 @@ return [
 	
 	'employee' => [
 		'title' => 'الموظفين',
+		'icon'=>' fa-vcard',
 		'fields' => [
 			'f-name' => 'الاسم الاول',
 			'l-name' => 'الاسم الاخير',

@@ -50,53 +50,10 @@
 <div class="tab-content">
     
 <div role="tabpanel" class="tab-pane active" id="employee">
-<table class="table table-bordered table-striped {{ count($employees) > 0 ? 'datatable' : '' }}">
-    <thead>
-        <tr>
-            <th>@lang('CRM.employee.fields.f-name')</th>
-                        <th>@lang('CRM.employee.fields.l-name')</th>
-                        <th>@lang('CRM.employee.fields.email')</th>
-                        <th>@lang('CRM.employee.fields.phone')</th>
-                        
-                                                <th>&nbsp;</th>
 
-        </tr>
-    </thead>
-
-    <tbody>
-        @if (count($employees) > 0)
-            @foreach ($employees as $employee)
-                <tr data-entry-id="{{ $employee->id }}">
-                    <td field-key='f_name'>{{ $employee->f_name }}</td>
-                                <td field-key='l_name'>{{ $employee->l_name }}</td>
-                                <td field-key='email'>{{ $employee->email }}</td>
-                                <td field-key='phone'>{{ $employee->phone }}</td>
-                                
-                                                                <td>
-                                   
-                                    <a href="{{ route('admin.employees.show',[$employee->id]) }}" class="btn btn-xs btn-primary">@lang('CRM.qa_view')</a>
-                                  
-                                    <a href="{{ route('admin.employees.edit',[$employee->id]) }}" class="btn btn-xs btn-info">@lang('CRM.qa_edit')</a>
-                                   
-{!! Form::open(array(
-                                        'style' => 'display: inline-block;',
-                                        'method' => 'DELETE',
-                                        'onsubmit' => "return confirm('".trans("CRM.qa_are_you_sure")."');",
-                                        'route' => ['admin.employees.destroy', $employee->id])) !!}
-                                    {!! Form::submit(trans('CRM.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
-                                    {!! Form::close() !!}
-                                    
-                                </td>
-
-                </tr>
-            @endforeach
-        @else
-            <tr>
-                <td colspan="10">@lang('CRM.qa_no_entries_in_table')</td>
-            </tr>
-        @endif
-    </tbody>
-</table>
+    <div id="jtableContainer">
+          
+    </div>
 </div>
 </div>
 
@@ -113,9 +70,5 @@
 @endsection
 
 
-
-@section('javascript')
-
-     
-@endsection
+@include('admin.employees.Table')
 

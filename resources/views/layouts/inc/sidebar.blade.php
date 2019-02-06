@@ -40,13 +40,13 @@
             
             <li>
                 <a href="{{ route('admin.companies.index') }}">
-                    <i class="fa fa-building-o"></i>
+                    <i class="fa  @lang('CRM.company.icon')"></i>
                     <span>@lang('CRM.company.title')</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('admin.employees.index') }}">
-                    <i class="fa fa-vcard"></i>
+                    <i class="fa @lang('CRM.employee.icon')"></i>
                     <span>@lang('CRM.employee.title')</span>
                 </a>
             </li>

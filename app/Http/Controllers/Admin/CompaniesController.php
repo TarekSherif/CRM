@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use File;
 
+use DB;
 use Storage;
 use Response;
 use App\Mail\SendMail;
@@ -156,7 +156,55 @@ class CompaniesController extends Controller
     }
 
 
-   
- 
     
+    public function ListOfCompanys()
+    {
+        $jTableResult =  array();
+        
+        try
+        {
+            $SQL ="SELECT * FROM `companies`   ORDER BY  ".$_GET["jtSorting"] ." 
+            LIMIT ".$_GET["jtStartIndex"] ." , ".$_GET["jtPageSize"]  ;
+
+            $Data= DB::select($SQL);
+
+            $SQL ="SELECT Count(*) as TotalRecordCount  from companies";
+            $TotalRecordCount= DB::select($SQL)[0]->TotalRecordCount;
+            
+            $jTableResult['Result'] = "OK";
+            $jTableResult['Records'] =$Data;
+            $jTableResult['TotalRecordCount'] =$TotalRecordCount;
+      
+           
+        }
+        catch(Exception $ex)
+        {
+            //Return error Message
+            $jTableResult['Result'] = "ERROR";
+            $jTableResult['Message'] = $ex->getMessage();
+           
+        }
+        return response()->json($jTableResult);
+    }
+    
+    public function DeleteCompany()
+    {
+      $jTableResult =  array();
+          try
+          {
+                  //Delete from database
+                  $SQL="DELETE FROM companies WHERE id ='" . $_POST["id"]."';" ;
+                  DB::delete($SQL);
+                  //Return result to jTable
+                  $jTableResult['Result'] = "OK";
+               
+          }
+          catch(Exception $ex)
+          {
+              //Return error Message
+              $jTableResult['Result'] = "ERROR";
+              $jTableResult['Message'] = $ex->getMessage();
+         }
+        return response()->json($jTableResult);
+    }
 }

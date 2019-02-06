@@ -8,7 +8,15 @@ Route::group([  'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/home', 'HomeController@index');
 
     Route::resource('companies', 'Admin\CompaniesController');
+    Route::post('ListOfCompanys', 'Admin\CompaniesController@ListOfCompanys');
+    Route::post('DeleteCompany', 'Admin\CompaniesController@DeleteCompany');
+
     Route::resource('employees', 'Admin\EmployeesController');
+    Route::post('ListOfEmployees/{id?}', 'Admin\EmployeesController@ListOfEmployees');
+    Route::post('DeleteEmployee', 'Admin\EmployeesController@DeleteEmployee');
+
+
+    
     Route::get('TestMail', function ()
     {
         
